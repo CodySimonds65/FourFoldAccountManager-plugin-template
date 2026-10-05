@@ -1,0 +1,10 @@
+{
+  "id": "yourname.my-plugin",
+  "name": "My plugin",
+  "shortLabel": "Mine",
+  "version": "1.0.0",
+  "author": "Your name",
+  "description": "Lists your accounts with their class and level.",
+  "apiVersion": 2,
+  "panel": "index.html"
+}
