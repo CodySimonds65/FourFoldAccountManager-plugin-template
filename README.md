@@ -14,11 +14,13 @@ API.
    The plugin appears in the strip and in the plugin list with a **DEV** badge.
 4. In `plugin.json`, change `id`, `name`, `shortLabel` and `author` to your own. An `id` is `author.plugin-name`:
    lowercase letters and digits, with single dashes allowed between them, in parts joined by dots.
+5. Replace this README with one about your plugin. `LICENSE` is Apache 2.0, copied from the template: keep it or
+   put your own in its place.
 
 While you work:
 
-- Saving a file reloads the plugin within about a second. So does a git commit or checkout, because it also changes
-  files in the folder.
+- Saving a file reloads the plugin within about a second. So does git whenever it writes to the folder, such as on
+  a commit, checkout, add, fetch or pull.
 - **F5** reloads the plugin's page, and **Right-click, Inspect** opens the browser developer tools.
 - A `plugin.json` that breaks a rule still gets a row in the plugin list, with the reason.
 
