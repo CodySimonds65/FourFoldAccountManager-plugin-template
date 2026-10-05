@@ -51,6 +51,12 @@ npx -p typescript tsc -p jsconfig.json
 
 The types describe the API; they don't change what your plugin may do. FourFold enforces the limits and permissions.
 
+Many values can be `null`: a closed account has no XP, stats or silver. `jsconfig.json` keeps the checking relaxed,
+so that ordinary page code isn't underlined, and with that setting the editor shows such a value as plain `number` or
+`string`. Each field's description says when it is `null`. To have the editor check for it as well, add
+`"strictNullChecks": true` to `compilerOptions` in `jsconfig.json`. It then also asks you to handle
+`document.getElementById` returning `null`.
+
 ### `apiVersion`
 
 `apiVersion` in `plugin.json` is the lowest API version your plugin needs. An older FourFold then tells the user to
