@@ -67,8 +67,8 @@ update, instead of running a plugin that can't work there.
 The template declares `3`, the version the types describe, so everything the editor offers is safe to use. To run on
 older FourFold versions too, lower it:
 
-- to `2` if your plugin uses the live game feed (`fourfold.battle`, `fourfold.location`, `fourfold.session` and
-  `fourfold.live`) only when it's there. Check that `fourfold.battle` exists before you use it, and fall back to
+- to `2` if your plugin doesn't use the live game feed (`fourfold.battle`, `fourfold.location`, `fourfold.session` and
+  `fourfold.live`), or uses it only when it's there: check that `fourfold.battle` exists, and fall back to
   `fourfold.xp` and `fourfold.profile`. The feed can also be switched off or unavailable on a FourFold that has it,
   so that fallback is worth having anyway. [Silver tracker](https://github.com/CodySimonds65/FourFoldAccountManager-silver-tracker)
   does this.
