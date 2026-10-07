@@ -5,6 +5,6 @@
   "version": "1.0.0",
   "author": "Your name",
   "description": "Lists your accounts with their class and level.",
-  "apiVersion": 2,
+  "apiVersion": 3,
   "panel": "index.html"
 }

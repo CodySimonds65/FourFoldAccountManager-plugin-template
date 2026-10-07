@@ -48,7 +48,7 @@ It works in plain JavaScript, with no build step. To check the whole plugin from
 npx -p typescript tsc -p jsconfig.json
 ```
 
-`fourfold.d.ts` describes plugin API version 2. When FourFold's API gains a version, take the new file from
+`fourfold.d.ts` describes plugin API version 3. When FourFold's API gains a version, take the new file from
 [this repository](https://github.com/CodySimonds65/FourFoldAccountManager-plugin-template/blob/main/fourfold.d.ts).
 
 The types describe the API; they don't change what your plugin may do. FourFold enforces the limits and permissions.
@@ -64,9 +64,15 @@ so that ordinary page code isn't underlined, and with that setting the editor sh
 `apiVersion` in `plugin.json` is the lowest API version your plugin needs. An older FourFold then tells the user to
 update, instead of running a plugin that can't work there.
 
-The template declares `2`, the version the types describe, so everything the editor offers is safe to use. If your
-plugin uses nothing from version 2 (`fourfold.profile`, and `equipment` from `fourfold.stats.get`) and you want it to
-run on older FourFold versions too, lower it to `1`.
+The template declares `3`, the version the types describe, so everything the editor offers is safe to use. To run on
+older FourFold versions too, lower it:
+
+- to `2` if your plugin uses the live game feed (`fourfold.battle`, `fourfold.location`, `fourfold.session` and
+  `fourfold.live`) only when it's there. Check that `fourfold.battle` exists before you use it, and fall back to
+  `fourfold.xp` and `fourfold.profile`. The feed can also be switched off or unavailable on a FourFold that has it,
+  so that fallback is worth having anyway. [Silver tracker](https://github.com/CodySimonds65/FourFoldAccountManager-silver-tracker)
+  does this.
+- to `1` if it also uses nothing from version 2 (`fourfold.profile`, and `equipment` from `fourfold.stats.get`).
 
 ## The API, and examples
 
@@ -76,6 +82,8 @@ run on older FourFold versions too, lower it to `1`.
   storage and fills an overlay card.
 - [Silver tracker](https://github.com/CodySimonds65/FourFoldAccountManager-silver-tracker) reads the profile data,
   keeps its maths in a module, and has a check that runs with Node.
+- [RNG luck](https://github.com/CodySimonds65/FourFoldAccountManager-rng-luck) counts the live game feed's skill
+  results against each skill's listed chance.
 
 ## Getting listed
 
